@@ -34,12 +34,13 @@
   - https://www.testdome.com/for-developers/solve-question/8518
   - http://chanlee.github.io/2013/12/10/understand-javascript-closure/
   - http://blog.javarouka.me/2012/01/javascripts-closure.html
+  - https://www.youtube.com/watch?v=9VZKiB92okk
 
 ```javascript
 function registerHandlers() {
   var as = document.getElementsByTagName('a');
   var max = as.length;
-  
+
   for (var i = 0; i < max; i++) {
     (function() {
       var idx = i;
