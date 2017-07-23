@@ -6,12 +6,12 @@
 ### Creating and Initializing
 
 1) use `new` keyword
-```
+```javascript
 var testArray = new Array();
 ```
 
 2) `[]`
-```
+```javascript
 var testArray = []; //declare
 var testArray2 = ['test1', 'test2', 'test3'] //initialize
 ```
@@ -28,7 +28,7 @@ var testArray2 = ['test1', 'test2', 'test3'] //initialize
 //manually code
 
 5) `splice()`: remove in between / add in between
-```
+```javascript
 // remove
 array.splice(1,2);
 // add
@@ -45,7 +45,7 @@ push & pop is an emulation of `stack`. shift & unshift is an emulation of `queue
 * Instead, we use arrays of arrays.
 
 ##### 2 x 2
-```
+```javascript
 // everyday meal
 // 0 ~ 4 --> mon ~ fri
 dailyMeal[0] = [];
@@ -68,7 +68,7 @@ function printMeal(dailyMeal){
 }
 ```
 ##### 3 x 3
-```
+```javascript
 // function to create 3x3 matrix
 var matrix = [];
 for (var i = 0 ; i < 3 ; i++){
@@ -92,7 +92,7 @@ console.log(matrix);
 
 *&ast;note* : works regardless types
 
-```
+```javascript
 var test = 'test';
 var testArray1 = [1,3,5,7];
 var testArray2 = [2,4,6,8];
@@ -101,7 +101,7 @@ testArray1.concat(test,testArray2);
 ```
 
 ### Iterator functions
-```
+```javascript
 //sample function
 var isEight = function(x){
 	console.log(x);
@@ -109,14 +109,14 @@ var isEight = function(x){
 }
 ```
 1) `every()` : iterates each element, passes it to a function, stops when result is false.
-```
+```javascript
 var numberArray = [1,2,3,4,5,6,7,8,9,10];
 numberArray.some(isEight);
 >>1
 >>false
 ```
 2) `some()` : iterates each element, passes it to a function, stops when result is true.
-```
+```javascript
 numberArray.some(isEight);
 >>1
 >>2
@@ -125,12 +125,12 @@ numberArray.some(isEight);
 >>true
 ```
 3) `map()` : Returns an array that stores result of every function run.
-```
+```javascript
 numberArray.map(isEight);
 >> [false, false, false, false, false, false, false, true, false, false];
 ```
 4) `filter()` : returns an array with elements of `true` value.
-```
+```javascript
 var lotsOfEight = [1,8,3,4,8,8,3,4,8];
 >> [8, 8, 8, 8]
 ```
@@ -138,7 +138,7 @@ var lotsOfEight = [1,8,3,4,8,8,3,4,8];
 5) `reduce(function(prevValue, currentValue, currentIndex, arr), initialValue)` : returns a result that has been ran continuously with given function through each element.
 *&ast;note*: prevValue == 전 회차에서 반환된 값.
 See [here](https://www.w3schools.com/jsref/jsref_reduce.asp) for more detail.
-```
+```javascript
 numberArray.reduce(function(prevValue, currentValue, currentIndex, arr), initialValue) {
 	return prevValue + current;
 });
@@ -155,14 +155,14 @@ If we want our `sort()` to sort *numerically*, we need to pass another function 
 > array.sort(compareFunction)
 
 To sort with ascending order:
-```
+```javascript
 numberArray.sort(function(a,b){
   return a-b;
 });
 >> [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 ```
 To sort with descending order:
-```
+```javascript
 numberArray.sort(function(a,b){
   return b-a;
 });
@@ -172,7 +172,7 @@ numberArray.sort(function(a,b){
 * Custom sorting
 
 We can use `compareFunction` to compare any type of elements as we define.
-```
+```javascript
 var petAge = [
   {name: '치즈', weight : 2},
   {name: '봉구', weight : 1.8},
@@ -193,7 +193,7 @@ console.log(petAge.sort(compareWeight));
 
 But sometimes, you would want them to be ordered with different ordering rule.
 
-```
+```javascript
 // ignore cases
 function ignoreCase(a,b){
   a.toLowerCase() - b.toLowerCase;
