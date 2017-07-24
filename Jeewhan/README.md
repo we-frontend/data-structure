@@ -90,6 +90,8 @@ function registerHandlers() {
     - http://meetup.toast.com/posts/73
 - 익명 함수를 만드는 다른 방법
   - http://hacks.mozilla.or.kr/2015/09/es6-in-depth-arrow-functions/
+- 함수 객체
+  - http://meetup.toast.com/posts/118
 
 
 
