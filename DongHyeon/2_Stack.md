@@ -5,9 +5,14 @@
 
 ## Stack Method
 * Stack도 Array이기 때문에 Array Method와 비슷
-- 
+* pop()
+* push(원소s)
+* peek()
+* isEmpty()
+* clear()
+* size()
 
-## (Code)10진수를 2진수로 바꿔보자
+### (Code)10진수를 2진수로 바꿔보자
 ```
 function divideBy2(decnumber){
   var remstack = [];
