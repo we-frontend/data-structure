@@ -15,8 +15,6 @@ function printMatrix(count) {
             }
         }
     }
-
-    console.log(myMatrix);
 }
 
 var myMatrix = [1,2,3];
