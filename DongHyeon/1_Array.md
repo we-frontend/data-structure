@@ -15,7 +15,7 @@ var Array_1 = []; // 선언(Declare)
 var Array_1 = ['first', 'second', 'Third'] // 초기화(initialize)
 ```
 
-## Element 추가(Adding)&삭제(removing)
+## Element 추가(Adding)&삭제(Removing)
 1) `push()`: End에 추가 / `array.push(1);`
 
 2) `pop()` : End 삭제(뽑다 = =pop) / `array.pop();`
@@ -35,9 +35,11 @@ array.splice(2,0,1,2,3);
 * `pop()`과 `push()`는 **Stack** 자료구조의 형태를 모방한 Method이고,
 * `shift()`와 `unshift()`는 **Que** 자료구조의 형태를 모방한 Method이다.  
 
-- 다차원 배열
- : 2차원 배열(2차원 테이블화) / ex) array[2][3]
- : 3차원 배열(3차원 테이블화) / ex) array[2][3][4]
+## 다차원 배열(Two-dimensional and multi-dimensional arrays)
+* 2차원 배열(Two-dimensional Array) : 행렬(Matrix) 형태로 표현 // `array[3][2]`
+* 3차원 배열(Tree-dimendional Array) : 3차원 행렬(Cube Matrix) 형태로 표현 // `array[3][2][1]`
+* 그러나 보통 1차원 배열 여러개로 표현하는 경우가 많다
+
 - 많이 사용 되는 배열 메소드 정리
 1. concat 메소드 : 배열 합치기
  · var newarray = array.concat([0],plusarray) // array라는 배열에 [0]과 plusarray를 합쳐서 반환
