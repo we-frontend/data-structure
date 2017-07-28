@@ -1,18 +1,39 @@
-- JS의 배열은 가변(Mutable) 객체이다. 원소를 쉽게 추가할 수 있고, 객체는 동적으로 커진다.
-- 원소 추가/제거
-1. push 메소드 : 뒤에 추가
- · array.push(11) // 11을 배열 가장 마지막에 추가
-2. pop 메소드 : 뒤에 하나 삭제
- · array.pop()
-cf) push / pop 은 Stack 자료구조를 모방한 메소드
-3. unshift 메소드 : 맨 앞에 엘리먼트 추가 후 하나씩 배열이 밀림
- · array.unshift(11) // 배열 맨 앞에 11 추가 후 하나씩 밀림
-4. shift 메소드 : 앞에 메소드가 삭제
- · array.shift()
-cf) unshift / shift 는 Que 자료구조를 모방한 메소드
-5. splice 메소드 : 특정 원소를 삭제
- · numbers.splice(5,3) // numbers 배열의 5번째 index부터 3개의 Element를 삭제
- · 끼워 넣기 기능도 가능 -> numbers.splice(5,0, 2,3,4) // 5번 index부터 0개 삭제 후 그 위치부터 2,3,4 삽입
+# Array
+ 
+* Javascript는 가변(Mutable) 객체이다. Element를 쉽게 추가할 수 있고, Object는 동적으로 크기가 변화한다.
+
+## 선언 및 초기화
+
+1) `new` keyword 사용
+```javascript
+var Array_1 = new Array();
+```
+
+2) `[]`를 통한 선언
+```javascript
+var Array_1 = []; // 선언(Declare)
+var Array_1 = ['first', 'second', 'Third'] // 초기화(initialize)
+```
+
+## Element 추가(Adding)&삭제(removing)
+1) `push()`: End에 추가 / `array.push(1);`
+
+2) `pop()` : End 삭제(뽑다 = =pop) / `array.pop();`
+
+3) `unshift()`: Frnot에 추가 / `array.unshift(1);`
+
+4) `shift()`: Front 삭제(뽑고 옮기다 == Shift) / `array.shift();`
+
+5) `splice()`: 특정 위치의 Element를 삭제 && 그 위치에 삽입할 수 있음
+```javascript
+// remove : 1번째 index부터 2개의 Element를 제거
+array.splice(1,2);
+// add : 2번째 index부터 0개 Element를 제거하고 1,2,3이라는 Element를 삽입
+array.splice(2,0,1,2,3); 
+```
+
+### `pop()`과 `push()`는 **Stack** 자료구조의 형태를 모방한 Method이고, `shift()`와 `unshift()`는 **Que** 자료구조의 형태를 모방한 Method이다.  
+
 - 다차원 배열
  : 2차원 배열(2차원 테이블화) / ex) array[2][3]
  : 3차원 배열(3차원 테이블화) / ex) array[2][3][4]
