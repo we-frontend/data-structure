@@ -32,7 +32,8 @@ array.splice(1,2);
 array.splice(2,0,1,2,3); 
 ```
 
-### `pop()`과 `push()`는 **Stack** 자료구조의 형태를 모방한 Method이고, `shift()`와 `unshift()`는 **Que** 자료구조의 형태를 모방한 Method이다.  
+* `pop()`과 `push()`는 **Stack** 자료구조의 형태를 모방한 Method이고,
+* `shift()`와 `unshift()`는 **Que** 자료구조의 형태를 모방한 Method이다.  
 
 - 다차원 배열
  : 2차원 배열(2차원 테이블화) / ex) array[2][3]
