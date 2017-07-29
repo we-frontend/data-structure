@@ -40,34 +40,76 @@ array.splice(2,0,1,2,3);
 * 3차원 배열(Tree-dimendional Array) : 3차원 행렬(Cube Matrix) 형태로 표현 // `array[3][2][1]`
 * 그러나 보통 1차원 배열 여러개로 표현하는 경우가 많다
 
-- 많이 사용 되는 배열 메소드 정리
-1. concat 메소드 : 배열 합치기
- · var newarray = array.concat([0],plusarray) // array라는 배열에 [0]과 plusarray를 합쳐서 반환
-# 반복문(2~4)
-2. every 메소드 : 결과 값이 false가 될 때까지 배열의 모든 원소를 반복
- · numbers.every(isEven) // nuberes의 원소가 짝수가 아닐때까지 반복
-3. some 메소드 : 결과 값이 true가 될 떄가지 배열의 모든 원소를 반복
- · numbers.every(isEven) // nuberes의 원소가 짝수가 될 때까지 반복
-4. forEach 메소드 : 조건에 상관없이 배열의 모든 원소를 반복(기능적으로 for in과 비슷)
+## 많이 사용되는 Array Method
+
+### 배열 합치기 
+1) `concat()`
+ * `var new_array = array.concat([0],plus_array)`
+ * array라는 배열에 [0]과 plus_array라는 배열을 합쳐서 반환
+
+### 반복문(iterator)
+
+``` javascript
+// sample function(입력받은 숫자가 2의 배수인지 확인)
+var isEven = function(x){
+    console.log(x);
+    return (x%2 === 0); // true || false
+}
+```
+
+1) `every(Function())` : 배열의 Elemnet를 순차적으로 반복하면서 Function()의 결과 값이 false가 되는 Element에서 Stop
+* `numbers.every(isEven)` // numbers 원소가 짝수가 아닐때까지 반복
+2) `some(Function())` : 배열의 Elemnet를 순차적으로 반복하면서 Function()의 결과 값이 true가 되는 Element에서 Stop
+* `numbers.every(isEven)` // nuberes의 원소가 짝수가 될 때까지 반복
+3) `forEach(Function())` : Function조건에 상관없이 배열의 모든 원소를 반복(기능적으로 for in과 비슷)
  · numbers.forEach(function(x){ ~~~~});
-# 객체반환(5~6)
-5. map 메소드 : 수행결과를 새 배열 객체로 변환하는 메소드
- · var myMap = numbers.map(isEven) // isEven 함수의 결과값이 myMap 배열에 담긴다.
-6. filter 메소드 : 함수의 결과 값을 true로 만드는 원소로만 구성된 새 배열을 반환
- · var evenNumbers = numbers.filter(isEven) // 짝수인 원소만을 새로운 배열로 만든다.
-7. reverse 메소드 : 원소 순서 거꾸로
- · numbers.reverse();
-8. sort 메소드 : 모든 원소를 문자열로 취급하여 사전적으로(Lexiocographically) 정렬
- · numbers.sort(); // -> [1,10,11,2,21,3,41] -> 사전적으로가 뭔 뜻인지 알겠지 미래의 동현아
- · 정렬 로직(function으로) 을 구현 -> numbers.sort(function(a,b){ return a-b;}); // 오름차순으로 정렬
-                                -> numbers.sort(function(a.b){ return b-a;}); // 내림차순으로 정렬
-cf) 문자열 정렬은 ASCII Code값을 기준으로 정렬한다. (ex - A > a = 대문자가 앞에 나옴)
-9. indexOf 메소드 : 앞에서부터 인덱스로 값을 조회
- · numbers.indeOf(9) // 앞에서부터 9번째 index의 값을 반환
-10. lastindexOf 메소드 : 뒤에서부터의 인덱스로 값을 조회
- · numbers.lastindexOf(3) // 뒤에서부터 3번째 index의 값을 반환
-11. toString 메소드 : 배열의 모든 원소를 단일 문자열로 바꿔준다
- · numbers.toString() // 안에 있는 배열을 “number[0],number[1],number[2],number[3]... ”
-12. join 메소드 : 각 원소 사이에 separator를 둘 수 있는 방법
- · nubers.join(‘-’); // “number[0] - number[1] - number[2] - number[3]...”
- -> 배열 내용을 서버에 전송하거나 디코딩할 때 아주 편한 배열 메소드
+4) `map(Function())` : 수행결과를 새 배열 객체로 변환
+* `var myMap = numbers.map(isEven)` // isEven 함수의 결과값(true||false)이 myMap 배열에 담긴다.
+5) `filter(Function())` : 함수의 결과 값을 true로 만드는 **Element**로만 구성된 새 배열을 반환
+* `var evenNumbers = numbers.filter(isEven)` // 짝수인 원소만을 새로운 배열로 만든다.
+6) `reverse()` : 배열의 Element 순서를 거꾸로
+* `numbers.reverse();`
+6) `reduce(Function(prevValue, currentValue, currentIndex, array), initialValue)` : 순차적으로 배열안에 있는 값을 Function으로 처리해서 최종결과값을 구한다.
+* [Document](https://www.w3schools.com/jsref/jsref_reduce.asp) 참고
+#### (code)배열을 다 더한 값을 구해보자
+``` javascript
+    numbers.reduce(function(previous,current, index){
+        return previous + current
+    }) // 앞에서부터 두 개씩 더해서 나온 반환 값을 그 다음 값과 더해가면서 진행
+```
+
+### 검색과 정렬(Searching and Sorting)
+1) `sort()` : 배열의 Element들을 **사전적(Lexicographic)**으로 정렬한다.
+* `numbers.sort(); // -> [1, 10, 11, 2, 21, 3, 41] 과 같이 사전적으로 정렬된다.
+#### sort 메소드를 Function으로써 return 값을 조절하면 sorting 규칙을 커스텀 할 수 있다.
+
+`array.sort(compareFunction)`
+* ascending order : + return
+* descending order : - return
+* custom order : using `compareFunction`
+``` javascript
+    funciont compareWeight(a,b){
+        return a.weight - b.weight; // 무게의 오름차순으로 객체들을 정렬
+    }
+
+```
+``` javascript
+// 대소문자 구분없이 순서대로 정렬해보자
+function ignoreCase(){
+    return a.toLowerCase() - b.toLowerCase();
+}
+```
+2) `reverse()` : 배열의 Element 순서를 거꾸로
+* `numbers.reverse();`
+
+3) `indexOf()` : 앞에서부터 첫 번째로 (element)가 위치해 있는 array의 index를 반환
+* `array.IndexOf(4);
+4) `lastIndexOf()` : 뒤에서부터 첫 번째로 (element)가 위치해 있는 array의 index를 반환
+* `array.lastIndexOf(4);
+
+### 배열을 문자열로 변환
+1) `toString()' : 배열의 모든 Element를 단일 Element로 바꾼다.
+* `numbers.toString();` // 안에 있는 배열을 “number[0],number[1],number[2],number[3]... ”
+2) `join("Seperator")` : 배열의 모든 Element를 문자열로 바꿔주는데 각 Element 사이에 Seperator를 둘 수 있다.
+* `nubers.join(‘-’);` // “number[0] - number[1] - number[2] - number[3]...”
+* 배열 내용을 서버에 전송할 떄 **Encoding || Decoding** 할 때 아주 편하다
