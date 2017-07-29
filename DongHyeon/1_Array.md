@@ -16,15 +16,15 @@ var Array_1 = ['first', 'second', 'Third'] // 초기화(initialize)
 ```
 
 ## Element 추가(Adding) & 삭제(Removing)
-1) `push()`: End에 추가 / `array.push(1);`
+#### `push()`: End에 추가 / `array.push(1);`
 
-2) `pop()` : End 삭제(뽑다 = =pop) / `array.pop();`
+#### `pop()` : End 삭제(뽑다 = =pop) / `array.pop();`
 
-3) `unshift()`: Frnot에 추가 / `array.unshift(1);`
+#### `unshift()`: Frnot에 추가 / `array.unshift(1);`
 
-4) `shift()`: Front 삭제(뽑고 옮기다 == Shift) / `array.shift();`
+#### `shift()`: Front 삭제(뽑고 옮기다 == Shift) / `array.shift();`
 
-5) `splice()`: 특정 위치의 Element를 삭제 && 그 위치에 삽입할 수 있음
+#### `splice()`: 특정 위치의 Element를 삭제 && 그 위치에 삽입할 수 있음
 ```javascript
 // remove : 1번째 index부터 2개의 Element를 제거
 array.splice(1,2);
@@ -41,7 +41,7 @@ array.splice(2,0,1,2,3);
 * 3차원 배열(Tree-dimendional Array) : 3차원 행렬(Cube Matrix) 형태로 표현 // `array[3][2][1]`
 * 그러나 보통 1차원 배열 여러개로 표현하는 경우가 많다
 
-## 많이 사용되는 Array Method
+## 많이 사용되는 배열 Method
 
 ### 배열 합치기 
 #### `concat()`
@@ -58,9 +58,9 @@ var isEven = function(x){
 }
 ```
 
-#### `every(Function())` : 배열의 Elemnet를 순차적으로 반복하면서 Function()의 결과 값이 false가 되는 Element에서 Stop
+#### `every(Function())` : 배열의 Element를 순차적으로 반복하면서 Function()의 결과 값이 false가 되는 Element에서 Stop
 * `numbers.every(isEven)` // numbers 원소가 짝수가 아닐때까지 반복
-#### `some(Function())` : 배열의 Elemnet를 순차적으로 반복하면서 Function()의 결과 값이 true가 되는 Element에서 Stop
+#### `some(Function())` : 배열의 Element를 순차적으로 반복하면서 Function()의 결과 값이 true가 되는 Element에서 Stop
 * `numbers.every(isEven)` // nuberes의 원소가 짝수가 될 때까지 반복
 #### `forEach(Function())` : Function조건에 상관없이 배열의 모든 원소를 반복(기능적으로 for in과 비슷)
 * `numbers.forEach(function(x){ ~~~~});`
