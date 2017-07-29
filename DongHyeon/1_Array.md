@@ -100,12 +100,12 @@ function ignoreCase(){
 }
 ```
 2) `reverse()` : 배열의 Element 순서를 거꾸로
-* `numbers.reverse();`
+ * `numbers.reverse();`
 
 3) `indexOf()` : 앞에서부터 첫 번째로 (element)가 위치해 있는 array의 index를 반환
-* `array.IndexOf(4);
+ * `array.IndexOf(4);
 4) `lastIndexOf()` : 뒤에서부터 첫 번째로 (element)가 위치해 있는 array의 index를 반환
-* `array.lastIndexOf(4);
+ * `array.lastIndexOf(4);
 
 ### 배열을 문자열로 변환
 1) `toString()' : 배열의 모든 Element를 단일 Element로 바꾼다.
