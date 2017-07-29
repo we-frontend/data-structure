@@ -118,25 +118,57 @@ function Queue(){
     * *remove* them according to the priority
 
 ```JavaScript
+// create queue class
 function PriorityQueue(){
+  // declare list of items
   var items = [];
+
+  this.dequeue = function(){
+      return items.shift();
+  }
+
+  this.front = function(){
+      return items[0];
+  }
+
+  this.isEmpty = function(){
+      return items.length == 0;
+  }
+
+  this.size = function(){
+      return items.length;
+  }
+
+  this.print = function(){
+      console.log(items.toString());
+  }
+
+  // declare a subclass that defines element and priority
   function QueueElement (element, priority){
     this.element = element;
     this.priority = priority;
   }
+  // declare class function for enqueue
   this.enqueue = function(element, priority){
+    // this function uses QueueElement instance
     var queueElement = new QueueElement(element,priority);
+    // if the array is empty
     if(this.isEmpty()){
       items.push(queueElement);
     }else{
+      // flag to check if element is already added due to priority
       var added = false;
       for (var i=0; i < items.length; i++){
+        // continue until meet the same / bigger priority
         if(queueElement.priority < items[i].priority){
+          // add element
           items.splice(i, 0, queueElement);
+          // change the flag
           added = true;
           break;
         }
       }
+      // if element was not added --> highest priority
       if(!added){
         items.push(queueElement);
       }
@@ -144,4 +176,32 @@ function PriorityQueue(){
   }
 }
 
+```
+*&ast;note* this will make a `min priority queue`. Priority with **lower number** will leave first.
+
+#### Circular Queue
+
+```JavaScript
+function hotPotato (nameList, num){
+  // creae an instance of a Queue
+  var queue = new Queue();
+  // enqueue all the names into queue
+  for (var i = 0; i < nameList.length; i++) {
+    queue.enqueue(nameList[i])
+  }
+  // declare eliminated variable
+  var eliminated = '';
+  // until there is one element left in queue
+  while(queue.size() > 1){
+    // put the first element to the last position
+    for (var i = 0; i < num; i++) {
+      queue.enqueue(queue.dequeue());
+    }
+    // after switching all the elements around, eliminate 1
+    eliminated = queue.dequeue();
+    console.log(eliminated);
+  }
+  // last survived one is known the winner
+  return queue.dequeue();
+}
 ```
