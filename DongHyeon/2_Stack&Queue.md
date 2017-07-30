@@ -1,5 +1,5 @@
 # Stack
-* First In First Out
+* Last in First out
 * 컴파일러에서 사용되는 자료구조
 * 변수나 메소드 호출을 메모리에 저장할 때 사용
 
@@ -42,7 +42,7 @@ function hanoi(n){
 ```
 
 # Queue
-* First In Last Out
+* Last in First out
 
 ## Queue Method
 * Queue도 Array이기 때문에 Array Method와 비슷
