@@ -2,7 +2,7 @@
 
 ## Hoisting(호이스팅) : 끌어올리다.
 * 선언을 상단으로 이동하는 Javascript의 행동
-* 변수와 함수의 **선언**을 아래에서 가장 위로 끌어올려 먼저 진행
+* 변수(var)와 함수(function)의 **선언**을 아래에서 가장 위로 끌어올려 먼저 진행
 * 그러나 변수 할당은 해당 위치에서 진행
 * 그러나 변수의 할당&초기화는 해당 위치에서 이뤄진다.
 * 변수
@@ -21,7 +21,14 @@
     console.log("foo");
 } 
 ```
-
+* 변수와 함수가 같은 이름으로 선언된다면 함수로 덮어씌워진다.
+``` javascript
+    function foo(){
+         return 4;
+    }
+    var foo = 1;
+    alert(foo); // 4
+```
 ## 변수 : var, let, const
 * var 변수의 부작용으로 ECMA6부터 let, const의 새로운 선언방법이 생김
 * var는 **Functional-scope**이다. === 유효범위가 함수 단위
