@@ -10,7 +10,7 @@
 1. Array
 2. Stack, Queue
 3. Linked List
-4. Set, Diction
+4. Set, Dictionary, Hash
 5. Tree
 6. Graph
 7. Sorting and Searching Algorithms
