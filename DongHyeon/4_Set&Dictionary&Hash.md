@@ -48,7 +48,8 @@
         return false;
     };
 ```
-- Set의 모든 원소를 삭제하고 싶을 떄는 clear 메소드를 써보자.
+##### Clear 메소드
+- Set의 모든 원소를 삭제하고 싶을 때 사용할 clear 메소드를 정의해보자.
 ``` javascript
     this.clear = function(){
         items = {};
