@@ -136,3 +136,67 @@
     }
 ```
 - Set처럼 Dictionary도 배열 대신 객체에 Element를 보관한다.
+
+##### get과 values 메소드
+- get 메소드 : 딕셔너리에서 key로 어떤 원소를 찾아 그 값을 알고 싶을 때 사용할 메소드를 정의해 보자.
+``` javascript
+    this.get = function(key){
+        return this.has(key) ? items[key] : undefined; // 참이면(존재) items[key] 반환, 거짓이면 undefined
+    }
+```
+- values 메소드 : 딕셔너리 전체 원소의 값을 배열로 반환하는 메소드를 정의해 보자.
+``` javascript
+    this.values = function(){
+        var values = [];
+        for(var k in items){
+            if(this.has(k)){
+                values.push(items[k]);
+            }
+        }
+    };
+```
+
+## Hash(해시)
+- 어떤 키에 해당하는 값의 **주소**를 테이블에서 찾아주는 함수를 사용하여 조회한다.
+- 자료구조에서 특정 값을 가장 신속하게 찾는 방법
+- loselose Hash function : 키를 구성하는 문자의 ASCII 값을 단순히 더한다.
+- Hash Table 만들기
+``` javascript
+    function HashTable(){
+        var table = [];
+        
+    // loselose function 선언
+    // key를 구성하는 문자의 모든 아스키 값을 합하는 함수
+    var loseloseHashCode = function(key){
+        var hash = 0;
+        for(var i = 0; i<key.length; i++){
+            hash += key.charCodeAt(i); // string 클래스의 charCodeAt 내장 메소드 사용
+        }
+        return hash % 37; // hash를 임의의 숫자로 나눈 나머지를 최종값으로 반환
+    }; 
+    
+    // put 메소드 구현 : 원소를 추가
+    // key를 해시 함수에 넣고 반환된 결과 값(position)을 테이블의 인덱스로 사용한다.
+    this.put = function(key, value){
+        var position = loseloseHashCode(key);
+        table[position] = value;
+    };
+    
+    // get 메소드 구현 : 키에 해당하는 원소를 찾아 값을 반환한다.
+    this.get = function(key){
+        return table[loseloseHashCode(key)];
+    };
+    
+    // remove 메소드 구현 : 키에 해당하는 원소를 찾아 삭제한다.
+    // 해당 key의 인덱스를 찾고 해당하는 table 배열 값을 undefined로 만들어 준다.
+    this.remove = function(key){
+        thable[loseloseHashCode(key)] = undefined;
+    };
+    }
+```
+
+#### Hasch Collision(해시 충돌)
+- key는 다른데 Hash 함수 값이 같아져 충돌하게 되는 경우
+- Hash 함수가 조잡하게 짜이는 경우 변환하는 과정에서 Hash 함수 값이 같아지는 경우가 생겨 이러한 문제가 발생한다.
+- Hash 충돌을 피할 수 있는 처리 방법 : 체이닝, 선형 탐사, 이중 해싱 방법
+- Seperate Chaining(체이닝)
